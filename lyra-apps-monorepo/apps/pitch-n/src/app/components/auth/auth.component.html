@@ -1,0 +1,24 @@
+@if (isAuthenticated()) {
+  <button
+    class="mr-3"
+    appearance="outline-grayscale"
+    tuiIconButton
+    size="s"
+    type="button"
+  >
+    <tui-avatar
+      size="xs"
+      src="@tui.user"
+    />
+  </button>
+} @else {
+  <button
+    size="m"
+    appearance="primary"
+    tuiButton
+    type="button"
+    (click)="authService.loginWithRedirect()"
+  >
+    Login
+  </button>
+}
