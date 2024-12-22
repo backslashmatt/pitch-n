@@ -1,0 +1,22 @@
+tui-textfield {
+  margin: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+tui-input-date {
+  margin: 1rem;
+}
+
+tui-input-time {
+  margin: 1rem;
+}

@@ -1,0 +1,52 @@
+<div
+  tuiAppearance="floating"
+  tuiCardLarge
+  class="summary-card"
+>
+  <header tuiHeader>
+    <h2 tuiTitle>Events Summary</h2>
+    <button
+      tuiButton
+      size="l"
+      type="button"
+      routerLink="/events"
+    >Go To Events
+      <tui-icon icon="arrow-right" />
+    </button>
+  </header>
+
+  @if (!eventStore.events().length) {
+    <section class="empty-events" (click)="createNewEvent()">
+      <tui-icon icon="plus"></tui-icon>
+      <h2>Add An Event</h2>
+    </section>
+  } @else {
+    <section>
+      @for (event of eventStore.events(); track event.name) {
+        <div
+          tuiAppearance="floating"
+          tuiCardLarge
+        >
+          <header tuiHeader>
+            <h2 tuiTitle>{{ event.name }}</h2>
+            <button
+              tuiButton
+              size="s"
+              type="button"
+            >
+              <tui-icon icon="pencil" />
+            </button>
+          </header>
+          <section>
+            <div tuiCardMedium>
+
+            </div>
+            <p>{{ event.location }}</p>
+            <p>{{ event.startDate | date: 'medium' }}</p>
+            <p>{{ event.startTime | date: 'shortTime' }}</p>
+          </section>
+        </div>
+      }
+    </section>
+  }
+</div>

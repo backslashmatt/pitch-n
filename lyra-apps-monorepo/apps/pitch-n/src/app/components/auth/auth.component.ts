@@ -2,24 +2,24 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, signal } from '@angu
 import { CommonModule } from '@angular/common';
 import { TuiAvatar } from '@taiga-ui/kit';
 import { AuthService } from '@auth0/auth0-angular';
-import { filter } from 'rxjs';
-import { TuiButton } from '@taiga-ui/core';
+import {
+  TuiButton,
+  TuiDataListComponent,
+  TuiDropdownDirective,
+  TuiDropdownOpen,
+  TuiLoader,
+  TuiOption
+} from '@taiga-ui/core';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, TuiAvatar, TuiButton],
+  imports: [CommonModule, TuiAvatar, TuiButton, TuiLoader, TuiDataListComponent, TuiOption, TuiDropdownDirective, TuiDropdownOpen],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   public readonly authService = inject(AuthService);
-  public isAuthenticated = signal(false);
-
-  public ngOnInit() {
-    this.authService.isAuthenticated$.pipe(filter(isAuthenticated => isAuthenticated)).subscribe(() => {
-      this.isAuthenticated.set(true);
-    });
-  }
+  menuOpen = false;
 }

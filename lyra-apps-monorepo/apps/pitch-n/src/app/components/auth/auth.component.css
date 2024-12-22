@@ -1,0 +1,9 @@
+:host {
+  min-width: 128px;
+  padding: 15px;
+}
+
+.right-align {
+  display: flex;
+  justify-content: end;
+}

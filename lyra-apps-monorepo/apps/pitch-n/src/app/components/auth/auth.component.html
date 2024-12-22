@@ -1,24 +1,43 @@
-@if (isAuthenticated()) {
-  <button
-    class="mr-3"
-    appearance="outline-grayscale"
-    tuiIconButton
-    size="s"
-    type="button"
-  >
-    <tui-avatar
-      size="xs"
-      src="@tui.user"
-    />
-  </button>
-} @else {
-  <button
-    size="m"
-    appearance="primary"
-    tuiButton
-    type="button"
-    (click)="authService.loginWithRedirect()"
-  >
-    Login
-  </button>
-}
+<div class="right-align">
+  @if (authService.isAuthenticated$ | async) {
+    <button
+      appearance="outline-grayscale"
+      tuiIconButton
+      size="s"
+      type="button"
+      [tuiDropdown]="menu"
+      [(tuiDropdownOpen)]="menuOpen"
+    >
+      <tui-avatar
+        *ngIf="authService.user$ | async as user"
+        size="xs"
+        src="{{user.picture ?? '@tui.user'}}"
+      />
+    </button>
+  } @else {
+    <tui-loader
+      class="loader"
+      [inheritColor]="true"
+      [overlay]="true"
+      [showLoader]="(authService.isLoading$ | async) ?? true"
+    >
+      <button
+        size="m"
+        appearance="secondary-grayscale"
+        tuiButton
+        type="button"
+        (click)="authService.loginWithRedirect()"
+      >
+        Login/Sign Up
+      </button>
+    </tui-loader>
+  }
+</div>
+
+<ng-template #menu>
+  <tui-data-list>
+    <button tuiOption (click)="authService.logout()">
+      Log Out
+    </button>
+  </tui-data-list>
+</ng-template>

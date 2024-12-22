@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+  <tui-textfield [tuiTextfieldCleaner]="true">
+    <label>Event Name</label>
+    <input tuiTextfield formControlName="name" />
+  </tui-textfield>
+  <tui-textfield [tuiTextfieldCleaner]="true">
+    <label>Event Location</label>
+    <input tuiTextfield formControlName="location" />
+  </tui-textfield>
+  <div class="wrapper">
+    <div style="width: 15%">
+      <label>
+        Is Multi Day
+        <input type="checkbox" tuiCheckbox formControlName="isMultiDay" />
+      </label>
+    </div>
+    <div style="width: 60%">
+      <div class="start-date-time" style="width: 100%;">
+        <tui-input-date
+          style="width: 100%;"
+          formControlName="startDate"
+        >
+          Choose a date
+        </tui-input-date>
+        <tui-input-time
+          style="width: 100%;"
+          formControlName="startTime"
+        >
+          Input time
+        </tui-input-time>
+      </div>
+      @if (!form.value.isMultiDay) {
+      }
+    </div>
+  </div>
+</form>
+{{ form.value | json }}
