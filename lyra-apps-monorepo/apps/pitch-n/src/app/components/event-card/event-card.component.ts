@@ -1,20 +1,15 @@
-import { Component } from '@angular/core';
-import { TuiAppearance, TuiButton, TuiTitle } from '@taiga-ui/core';
-import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
+import { Component, input, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MonthPipe } from '../../pipes/month.pipe';
+import { TuiCardMedium } from '@taiga-ui/layout';
+import { TuiAppearance } from '@taiga-ui/core';
+import { Event } from '../../stores/events.store';
 
 @Component({
   selector: 'app-event-card',
   standalone: true,
-  imports: [
-    TuiAppearance,
-    TuiCardLarge,
-    TuiHeader,
-    TuiTitle,
-    TuiButton
-  ],
+  imports: [CommonModule, MonthPipe, TuiCardMedium, TuiAppearance],
   templateUrl: './event-card.component.html',
-  styleUrl: './event-card.component.css'
+  styleUrls: ['./event-card.component.css'],
 })
-export class EventCardComponent {
-
-}
+export class EventCardComponent {}

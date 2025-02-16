@@ -12,6 +12,9 @@
         "{options.outputPath}"
       ],
       "options": {
+        "define": {
+          "API_URL": "http://localhost:5116/api/"
+        },
         "outputPath": "dist/apps/pitch-n",
         "index": "apps/pitch-n/src/index.html",
         "browser": "apps/pitch-n/src/main.ts",

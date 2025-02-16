@@ -1,10 +1,6 @@
-<div
-  tuiAppearance="floating"
-  tuiCardLarge
-  class="summary-card"
->
-  <header tuiHeader>
-    <h2 tuiTitle>Events Summary</h2>
+<section class="w-full p-2">
+  <header tuiHeader class="p-3">
+    <h1 tuiTitle>Events Summary</h1>
     <button
       tuiButton
       size="l"
@@ -14,7 +10,7 @@
       <tui-icon icon="arrow-right" />
     </button>
   </header>
-
+  <hr class="p-2"/>
   @if (!eventStore.events().length) {
     <section class="empty-events" (click)="createNewEvent()">
       <tui-icon icon="plus"></tui-icon>
@@ -39,31 +35,34 @@
           </header>
           <section>
             <div class="flex w-full">
-              <div tuiCardMedium tuiAppearance="outline" class="me-3 pt-0 ps-" [style.padding-top]="'0px'">
+              <div tuiCardMedium tuiAppearance="outline" class="me-3 pt-0"
+                   [ngStyle]="{ 'padding-top': '0px', 'padding-left': '0px', 'padding-right': '0px' }">
                 <div class="flex flex-col align-top w-full">
-                  <h2 class="pb-1 text-center text-xl font-bold">Days</h2>
+                  <h2 class="pb-1 text-center text-xl font-bold bg-red-400 text-white">Days</h2>
                   <hr class="border-0 h-px bg-gray-200 w-full" />
                 </div>
                 <div class="w-full text-center">
-                  <div class="text-7xl">{{ calcDays(event.startDate, event.endDate) }}</div>
+                  <div class="text-8xl text-black">{{ calcDays(event.startDate, event.endDate) }}</div>
                 </div>
               </div>
-              <div tuiCardMedium tuiAppearance="outline" [style.padding]="'0px'">
+              <div tuiCardMedium tuiAppearance="outline"
+                   [ngStyle]="{ 'padding-top': '0px', 'padding-left': '0px', 'padding-right': '0px' }">
                 <div class="flex flex-col align-top w-full">
-                  <h2 class="pb-1 text-center text-xl font-bold bg-indigo-500 text-white">{{ event.startDate | month }}</h2>
+                  <h2
+                    class="pb-1 text-center text-xl font-bold bg-indigo-500 text-white">{{ event.startDate | month }}</h2>
                   <hr class="border-0 h-px bg-gray-200 w-full" />
                 </div>
                 <div class="w-full text-center">
-                  <div class="text-7xl">{{ event.startDate.getDate() }}</div>
+                  <div class="text-8xl text-black">{{ event.startDate.getDate() }}</div>
                 </div>
               </div>
             </div>
-            <p>{{ event.location }}</p>
-            <p>{{ event.startDate | date: 'medium' }}</p>
-            <p>{{ event.startTime | date: 'shortTime' }}</p>
+<!--            <p>{{ event.location }}</p>-->
+<!--            <p>{{ event.startDate | date: 'medium' }}</p>-->
+<!--            <p>{{ event.startTime | date: 'shortTime' }}</p>-->
           </section>
         </div>
       }
     </section>
   }
-</div>
+</section>

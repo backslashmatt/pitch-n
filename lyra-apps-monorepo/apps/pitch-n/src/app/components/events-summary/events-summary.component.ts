@@ -3,8 +3,9 @@ import { TuiAppearance, TuiButton, TuiIcon, TuiTitle } from '@taiga-ui/core';
 import { TuiCardLarge, TuiCardMedium, TuiHeader } from '@taiga-ui/layout';
 import { Router, RouterLink } from '@angular/router';
 import { EventsStore } from '../../stores/events.store';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgStyle } from '@angular/common';
 import { MonthPipe } from '../../pipes/month.pipe';
+import { EventCardComponent } from '../event-card/event-card.component';
 
 @Component({
   selector: 'app-events-summary',
@@ -19,10 +20,11 @@ import { MonthPipe } from '../../pipes/month.pipe';
     RouterLink,
     TuiCardMedium,
     DatePipe,
-    MonthPipe
+    NgStyle,
+    MonthPipe,
   ],
   templateUrl: './events-summary.component.html',
-  styleUrl: './events-summary.component.css'
+  styleUrl: './events-summary.component.css',
 })
 export class EventsSummaryComponent {
   router = inject(Router);

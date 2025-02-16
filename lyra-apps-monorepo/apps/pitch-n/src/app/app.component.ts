@@ -2,9 +2,10 @@ import {
   TuiButton,
   TuiDataListComponent,
   TuiDropdownDirective,
-  TuiDropdownHover, TuiDropdownOpen,
+  TuiDropdownHover,
+  TuiDropdownOpen,
   TuiIcon,
-  TuiRoot
+  TuiRoot,
 } from '@taiga-ui/core';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -15,21 +16,40 @@ import {
   TuiAsideGroupComponent,
   TuiAsideItemDirective,
   TuiHeaderComponent,
-  TuiLogoComponent
+  TuiLogoComponent,
 } from '@taiga-ui/layout';
 import {
   TuiAvatar,
   TuiBadge,
-  TuiBadgeNotification, TuiChevron,
+  TuiBadgeNotification,
+  TuiChevron,
   TuiDataListDropdownManager,
   TuiFade,
-  TuiTabsHorizontal
+  TuiTabsHorizontal,
 } from '@taiga-ui/kit';
 import { AuthComponent } from './components/auth/auth.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule, TuiRoot, NavbarComponent, TuiAsideItemDirective, TuiIcon, TuiBadge, TuiTabsHorizontal, TuiDropdownDirective, TuiDataListComponent, TuiAsideGroupComponent, TuiBadgeNotification, TuiAvatar, AuthComponent, TuiAsideComponent, TuiButton, TuiLogoComponent, TuiHeaderComponent, TuiFade, TuiDropdownHover, TuiDropdownOpen, TuiDataListDropdownManager, TuiChevron],
+  imports: [
+    RouterModule,
+    TuiRoot,
+    TuiAsideItemDirective,
+    TuiDropdownDirective,
+    TuiDataListComponent,
+    TuiAsideGroupComponent,
+    TuiBadgeNotification,
+    AuthComponent,
+    TuiAsideComponent,
+    TuiButton,
+    TuiLogoComponent,
+    TuiHeaderComponent,
+    TuiFade,
+    TuiDropdownHover,
+    TuiDropdownOpen,
+    TuiDataListDropdownManager,
+    TuiChevron,
+  ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
